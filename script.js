@@ -59,7 +59,13 @@ const locations = [
   { name: "名護", cityId: "471010", region: "九州・沖縄" } // 沖縄
 ];
 
-// ナビゲーションバーを削除し、地域ごとの展開・折りたたみ機能を無効化
+// ナビゲーションバーを削除
+const nav = document.querySelector("nav");
+if (nav) {
+  nav.remove();
+}
+
+// 地域ごとの展開・折りたたみ機能を無効化
 const container = document.getElementById("regions-container");
 
 // 地域別にグループ化
