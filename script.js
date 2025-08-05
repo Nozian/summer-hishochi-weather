@@ -59,6 +59,7 @@ const locations = [
   { name: "名護", cityId: "471010", region: "九州・沖縄" } // 沖縄
 ];
 
+// ナビゲーションバーを削除し、地域ごとの展開・折りたたみ機能を無効化
 const container = document.getElementById("regions-container");
 
 // 地域別にグループ化
@@ -92,27 +93,4 @@ Object.keys(regions).forEach(regionName => {
 
   regionDiv.appendChild(locationsDiv);
   container.appendChild(regionDiv);
-});
-
-// ナビゲーションバーを追加
-const nav = document.createElement("nav");
-nav.className = "navbar";
-
-Object.keys(regions).forEach(regionName => {
-  const link = document.createElement("a");
-  link.href = `#${regionName}`;
-  link.textContent = regionName;
-  nav.appendChild(link);
-});
-
-document.body.insertBefore(nav, container);
-
-// 地域ごとの展開・折りたたみ機能
-Object.keys(regions).forEach(regionName => {
-  const regionDiv = document.querySelector(`.region h2:contains('${regionName}')`).parentElement;
-  const locationsDiv = regionDiv.querySelector(".locations-grid");
-
-  regionDiv.querySelector("h2").addEventListener("click", () => {
-    locationsDiv.style.display = locationsDiv.style.display === "none" ? "block" : "none";
-  });
 });
