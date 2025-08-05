@@ -94,3 +94,7 @@ Object.keys(regions).forEach(regionName => {
   regionDiv.appendChild(locationsDiv);
   container.appendChild(regionDiv);
 });
+
+// フッターの著作権表記を変更
+const footer = document.querySelector("footer");
+footer.innerHTML = "<p>Made by Nozian</p>";
